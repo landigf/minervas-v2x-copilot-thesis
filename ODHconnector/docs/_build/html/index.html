@@ -74,7 +74,6 @@
 <h1>MinervaS-ODH Connector<a class="headerlink" href="#minervas-odh-connector" title="Link to this heading"></a></h1>
 <blockquote>
 <div><p><strong>Lightweight bridge between the MinervaS fleet-guidance core and the OpenDataHub (ODH) Weather &amp; Traffic APIs for the <em>A22 Trentino</em> corridor.</strong></p>
-<p><strong>Status</strong>: <em>Skeleton/PoC — ready for extension.</em></p>
 </div></blockquote>
 <hr class="docutils" />
 <section id="table-of-contents">
@@ -108,22 +107,25 @@
 <section id="project-structure">
 <h2>Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading"></a></h2>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ODHconnector/
-│   pyproject.toml   # build metadata &amp; deps (PEP 621)
-│   README.md        # ← this file
-│   .env.example     # sample env vars
 │
-├── src/
-│   └── odhconnector/  # package root
-│       ├── models.py
-│       ├── utils.py
-│       ├── connectors/
-│       │   └── connector.py
-│       └── adapters/
-│           ├── weather_adapter.py
-│           └── traffic_adapter.py
+├── src/odhconnector/
+│   ├── adapters/
+│   │   ├── weather_adapter.py
+│   │   └── traffic_adapter.py
+│   ├── connectors/          # Main ODHConnector interface
+│   │   └── connector.py
+│   ├── models.py            # Dataclasses for WeatherIndex, Incident, etc.
+│   ├── utils.py
+│   └── risk/                # Fuzzy logic risk estimation engine
+│       ├── fuzzy_engine.py
+│       └── membership.py
 │
-├── tests/           # pytest test suite
-└── docs/            # Sphinx documentation source
+├── tests/                   # Pytest-based tests
+├── docs/                    # Sphinx doc sources
+├── .env.example             # Sample env vars
+├── requirements.txt         # Dependencies (editable)
+├── pyproject.toml           # Build &amp; metadata
+└── README.md                # ← You are here
 </pre></div>
 </div>
 </section>
@@ -202,7 +204,7 @@ pytest<span class="w"> </span>-q<span class="w">      </span><span class="c1"># 
 </section>
 <section id="last-update">
 <h2>Last Update<a class="headerlink" href="#last-update" title="Link to this heading"></a></h2>
-<p>|today|</p>
+<p>|26-06-2025|</p>
 </section>
 </section>
 <div class="toctree-wrapper compound">

@@ -1,8 +1,7 @@
 # MinervaS-ODH Connector
 
 > **Lightweight bridge between the MinervaS fleet-guidance core and the OpenDataHub (ODH) Weather & Traffic APIs for the *A22 Trentino* corridor.**
->
-> **Status**: *Skeleton/PoC — ready for extension.*
+
 
 ---
 
@@ -128,4 +127,4 @@ pytest -q      # -q for quiet output
 
 ## Last Update
 
-|today|
+|26-06-2025|

@@ -15,7 +15,7 @@ def main():
         last_n_hours=1000
     )
 
-    km = 20
+    km = 200
 
     print("Incidenti:", len(conn.get_incidents(within_km=km)))
     print("Code:", len(conn.get_queues(within_km=km)))
